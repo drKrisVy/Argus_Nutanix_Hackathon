@@ -235,15 +235,7 @@ graph loaded.
 | Explainer Agent | Keyword-matched graph grounding | Embedding-based retrieval for fuzzier questions |
 | Dashboard | One Streamlit screen, single repo | Multi-repo, auth, history, PR webhook trigger |
 
-## 10. Evaluation-criteria alignment
-
-- **Innovation & creativity** -- shared graph substrate + narrow specialized agents, each tied to a specific paper, not "one more Copilot."
-- **Completeness / working state** -- every core path is implemented and tested end-to-end (section 8), not just designed on paper.
-- **Practical impact** -- targets real senior-engineer pain: onboarding, review quality, stale docs, silent perf regressions.
-- **Presentation & articulation** -- see [`docs/demo-script.md`](docs/demo-script.md).
-- **Learning & skill application** -- every agent is explicitly tied to a paper that was read and adapted, with the adaptation decisions written down rather than hidden.
-
-## 11. Known limitations
+## 10. Known limitations
 
 - Call resolution matches by short function name, so two functions with
   the same name in different modules can be conflated on a larger repo.
