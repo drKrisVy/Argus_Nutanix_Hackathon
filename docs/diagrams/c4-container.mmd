@@ -1,0 +1,10 @@
+flowchart TB
+    main["main"]
+    pricing["pricing"]
+    inventory["inventory"]
+    orders["orders"]
+    notifications["notifications"]
+    main --> notifications
+    orders --> inventory
+    orders --> pricing
+    notifications --> orders

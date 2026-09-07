@@ -1,0 +1,4 @@
+flowchart LR
+    Engineer((Engineer)) -->|asks questions,\nreviews diffs| Argus[Argus]
+    Argus -->|parses| Repo[(Target Python repo\ndata/sample_repo)]
+    Argus -->|calls| Groq[Groq LLM API\nllama-3.3-70b-versatile]

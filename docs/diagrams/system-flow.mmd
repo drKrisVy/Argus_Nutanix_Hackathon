@@ -1,0 +1,29 @@
+flowchart TD
+    Dev[Developer request\ne.g. via Streamlit dashboard] --> Classify
+
+    subgraph Memory["Live Codebase Memory"]
+        Parser[parser.py\nPython ast] --> Builder[graph_builder.py]
+        Builder --> Graph[(networkx DiGraph\nmodules / functions / calls / imports)]
+    end
+
+    Classify[Orchestrator: classify\nLangGraph node] -->|architecture| Architect[Architect Agent]
+    Classify -->|review| Reviewer[Reviewer Agent]
+    Classify -->|performance| PerfAgent[Performance Agent]
+    Classify -->|general question| Explainer[Explainer Agent]
+    Classify -->|test| TestGen[Test Agent: generate]
+    TestGen --> TestRun[Test Agent: run]
+    TestRun -->|fail, retries left| TestGen
+    TestRun -->|pass or out of retries| End([END])
+
+    Graph --> Architect
+    Graph --> Reviewer
+    Graph --> PerfAgent
+    Graph --> Explainer
+    Graph --> TestGen
+
+    Architect --> End
+    Reviewer --> End
+    PerfAgent --> End
+    Explainer --> End
+
+    End --> Dashboard[Streamlit dashboard]
